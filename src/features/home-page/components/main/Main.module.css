@@ -1,0 +1,20 @@
+.main {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wrapper-main {
+  width: 1024px;
+  background-color: lightblue;
+}
+.daily-photo-link {
+  position: relative;
+  background-color: khaki;
+
+  display: block;
+
+  width: 300px;
+  height: 300px;
+}
