@@ -11,55 +11,60 @@ const AsteroidsList = ({ asteroidsListObject, getAsteroidsList }) => {
   if (!asteroidsListObject) {
     getAsteroidsList(date);
   }
-  console.log(asteroidsListObject);
   const asteroids =
     asteroidsListObject &&
     asteroidsListObject.near_earth_objects[date] &&
     asteroidsListObject.near_earth_objects[date].map(
       (asteroid) =>
         (asteroid = (
-          <ul key={`asteroid_${asteroid.id}`}>
-            <li>
-              Name:
-              {asteroid.name}
-            </li>
-            <li>
-              Distanse:
-              {Math.round(
-                asteroid.close_approach_data[0].miss_distance.kilometers
-              )}
-              km
-            </li>
-            <li>
-              Date:
-              {asteroid.close_approach_data["0"].close_approach_date_full}
-            </li>
-            <li>
-              Is potentially hazardous:
-              {asteroid.is_potentially_hazardous_asteroid
-                ? "hazardous"
-                : "is not hazardous"}
-            </li>
-          </ul>
+          <li className="asteroid" key={`asteroid_${asteroid.id}`}>
+            <ul className="asteroid-info">
+              <li className="asteroid-info-item">
+                Name:
+                {asteroid.name}
+              </li>
+              <li className="asteroid-info-item">
+                Distanсe:
+                {Math.round(
+                  asteroid.close_approach_data[0].miss_distance.kilometers
+                )}
+                km
+              </li>
+              <li className="asteroid-info-item">
+                Date:
+                {asteroid.close_approach_data["0"].close_approach_date_full}
+              </li>
+              <li className="asteroid-info-item">
+                Is potentially hazardous:
+                {asteroid.is_potentially_hazardous_asteroid
+                  ? "hazardous"
+                  : "is not hazardous"}
+              </li>
+            </ul>
+          </li>
         ))
     );
-
   return (
-    <>
+    <div className="asteroids-list-wrapper">
       {asteroidsListObject && (
-        <span className="asteroids-list">{asteroids}</span>
+        <ul className="asteroids-list">{asteroids ? asteroids : "hui"}</ul>
       )}
       <input
         type="text"
-        placeholder="Введите дату"
+        placeholder="YYYY-MM-DD"
         onKeyUp={(ev) => {
           if (ev.keyCode === 13) {
-            getAsteroidsList(ev.target.value);
-            setDate(ev.target.value);
+            const isValidDate = /\d{4}-\d{2}-\d{2}/.test(ev.target.value);
+            if (isValidDate) {
+              getAsteroidsList(ev.target.value);
+              setDate(ev.target.value);
+            } else {
+              alert("error");
+            }
           }
         }}
       />
-    </>
+    </div>
   );
 };
 

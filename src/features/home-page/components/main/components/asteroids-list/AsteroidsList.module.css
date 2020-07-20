@@ -1,0 +1,35 @@
+.asteroids-list-wrapper {
+  background-color: #8d87c1;
+  align-self: end;
+  width: 350px;
+  height: 524px;
+}
+
+.asteroids-list {
+  min-width: 350px;
+  height: 500px;
+  overflow-y: scroll;
+  font-size: 14px;
+
+  margin: 0;
+  padding: 20px;
+
+  list-style-type: none;
+}
+
+.asteroid {
+  margin: 0 0 32px 0;
+  padding: 0;
+}
+
+.asteroid-info {
+  list-style-type: none;
+
+  margin: 0;
+  padding: 0;
+}
+
+.asteroid-info-item {
+  margin: 0;
+  padding: 0;
+}

@@ -6,15 +6,14 @@ import styles from "./header.module.css";
 const Header = () => {
   return (
     <header className="header">
-      <div className="wrapper-header">
-        <h1 className="home-heading">Sellenhass cosmonautics</h1>
-
-        <Link className="header-link" to="/daily-photo">
-          Daily Photo
-        </Link>
-        <Link className="asteroids-list" to="/asteroids-list">
-          asteroids-list
-        </Link>
+      <div class="twinkling">
+        <div className="wrapper-header">
+          <h1 className="home-heading">Sellenhass cosmonautics</h1>
+          <span className="header-text">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro,
+            harum sapiente!
+          </span>
+        </div>
       </div>
     </header>
   );
